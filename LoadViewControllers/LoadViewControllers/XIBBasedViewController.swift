@@ -1,5 +1,5 @@
 //
-//  StoryboardBasedViewController.swift
+//  XIBBasedViewController.swift
 //  LoadViewControllers
 //
 //  Created by Mohamed Ibrahim on 11/02/2023.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class StoryboardBasedViewController: UIViewController {
+class XIBBasedViewController: UIViewController {
     
     @IBOutlet var label: UILabel!
 
@@ -15,5 +15,4 @@ class StoryboardBasedViewController: UIViewController {
         super.viewDidLoad()
 
     }
-
 }
