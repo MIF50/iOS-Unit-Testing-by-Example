@@ -13,7 +13,6 @@
 		B548E930299C0365003183CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B548E92E299C0365003183CF /* Main.storyboard */; };
 		B548E932299C0366003183CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B548E931299C0366003183CF /* Assets.xcassets */; };
 		B548E935299C0366003183CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B548E933299C0366003183CF /* LaunchScreen.storyboard */; };
-		B548E943299C0377003183CF /* HardDependenciesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B548E942299C0377003183CF /* HardDependenciesTests.swift */; };
 		B548E94A299C081E003183CF /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = B548E949299C081E003183CF /* Analytics.swift */; };
 		B548E94C299C088D003183CF /* MySingletonAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = B548E94B299C088D003183CF /* MySingletonAnalytics.swift */; };
 		B548E94E299C08EE003183CF /* InstancePropertyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B548E94D299C08EE003183CF /* InstancePropertyViewController.swift */; };
@@ -54,7 +53,6 @@
 		B548E934299C0366003183CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B548E936299C0366003183CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B548E940299C0377003183CF /* HardDependenciesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HardDependenciesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B548E942299C0377003183CF /* HardDependenciesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HardDependenciesTests.swift; sourceTree = "<group>"; };
 		B548E949299C081E003183CF /* Analytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
 		B548E94B299C088D003183CF /* MySingletonAnalytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySingletonAnalytics.swift; sourceTree = "<group>"; };
 		B548E94D299C08EE003183CF /* InstancePropertyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstancePropertyViewController.swift; sourceTree = "<group>"; };
@@ -140,7 +138,6 @@
 		B548E941299C0377003183CF /* HardDependenciesTests */ = {
 			isa = PBXGroup;
 			children = (
-				B548E942299C0377003183CF /* HardDependenciesTests.swift */,
 				B548E961299C0FF1003183CF /* MySingletonViewControllerTests.swift */,
 				B5E67CF8299F56490072B172 /* OverrideViewControllerTests.swift */,
 				B5E67CFA299F58AD0072B172 /* InstanceInitializerViewControllerTests.swift */,
@@ -278,7 +275,6 @@
 				B5E67CFD299F59BC0072B172 /* InstancePropertyViewControllerTests.swift in Sources */,
 				B5E67CFF299F60F30072B172 /* ClosureInitializerViewControllerTests.swift in Sources */,
 				B548E962299C0FF1003183CF /* MySingletonViewControllerTests.swift in Sources */,
-				B548E943299C0377003183CF /* HardDependenciesTests.swift in Sources */,
 				B5E67CFB299F58AD0072B172 /* InstanceInitializerViewControllerTests.swift in Sources */,
 				B5E67CF9299F56490072B172 /* OverrideViewControllerTests.swift in Sources */,
 			);
