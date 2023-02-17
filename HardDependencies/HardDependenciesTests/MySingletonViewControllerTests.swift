@@ -26,7 +26,6 @@ class MySingletonViewControllerTests: XCTestCase {
         let sut = MySingletonViewController()
         sut.loadViewIfNeeded()
         
-        
         sut.viewDidAppear(false)
         
         //Normally, assert something
