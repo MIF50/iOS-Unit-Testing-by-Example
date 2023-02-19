@@ -35,8 +35,8 @@ final class ViewControllerTests: XCTestCase {
         executeRunLoop()
 
         XCTAssertEqual(navigtaion.viewControllers.count, 2,"navigation stack")
-        XCTAssertTrue(navigtaion.pushViewControllersArgsAnimated.last == true)
-        let pushedVC = navigtaion.viewControllers.last
+        XCTAssertEqual(navigtaion.pushViewControllersArgsAnimated.last,true)
+        let pushedVC = navigtaion.topViewController
         guard let codeNextVC = pushedVC as? CodeNextViewController else {
             XCTFail("Expected CodeNextViewController ,got \(String(describing: pushedVC))")
             return
@@ -46,7 +46,7 @@ final class ViewControllerTests: XCTestCase {
 
     func test_INCORRECT_tappingCodeModalButton_shouldPresentCodeNextViewController() {
         let sut = makeSUT()
-        UIApplication.shared.windows.first?.rootViewController = sut
+        UIApplication.shared.mainWindow?.rootViewController = sut
 
         tap(sut.codeModalButton)
 
@@ -140,3 +140,13 @@ final class ViewControllerTests: XCTestCase {
 
 }
 
+private extension UIApplication {
+    
+    var mainWindow: UIWindow? {
+        UIApplication
+            .shared
+            .connectedScenes
+            .compactMap { ($0 as? UIWindowScene)?.keyWindow }
+            .first
+    }
+}
