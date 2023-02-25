@@ -13,6 +13,9 @@
 		B56DDE0429AA613000F8A820 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B56DDE0229AA613000F8A820 /* Main.storyboard */; };
 		B56DDE0629AA613100F8A820 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B56DDE0529AA613100F8A820 /* Assets.xcassets */; };
 		B56DDE0929AA613100F8A820 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B56DDE0729AA613100F8A820 /* LaunchScreen.storyboard */; };
+		B56DDE1E29AA65E100F8A820 /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56DDE1D29AA65E100F8A820 /* MockURLSession.swift */; };
+		B56DDE2029AA671200F8A820 /* ViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56DDE1F29AA671200F8A820 /* ViewControllerTests.swift */; };
+		B56DDE2329AA67CC00F8A820 /* TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56DDE2229AA67CC00F8A820 /* TestHelpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +38,9 @@
 		B56DDE0829AA613100F8A820 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B56DDE0A29AA613100F8A820 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B56DDE1429AA615900F8A820 /* NetworkRequestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetworkRequestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B56DDE1D29AA65E100F8A820 /* MockURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
+		B56DDE1F29AA671200F8A820 /* ViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTests.swift; sourceTree = "<group>"; };
+		B56DDE2229AA67CC00F8A820 /* TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHelpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,8 +96,19 @@
 		B56DDE1529AA615900F8A820 /* NetworkRequestTests */ = {
 			isa = PBXGroup;
 			children = (
+				B56DDE2129AA67BD00F8A820 /* Helpers */,
+				B56DDE1D29AA65E100F8A820 /* MockURLSession.swift */,
+				B56DDE1F29AA671200F8A820 /* ViewControllerTests.swift */,
 			);
 			path = NetworkRequestTests;
+			sourceTree = "<group>";
+		};
+		B56DDE2129AA67BD00F8A820 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				B56DDE2229AA67CC00F8A820 /* TestHelpers.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,6 +164,7 @@
 					};
 					B56DDE1329AA615900F8A820 = {
 						CreatedOnToolsVersion = 14.2;
+						LastSwiftMigration = 1420;
 						TestTargetID = B56DDDF829AA613000F8A820;
 					};
 				};
@@ -205,6 +223,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B56DDE2029AA671200F8A820 /* ViewControllerTests.swift in Sources */,
+				B56DDE1E29AA65E100F8A820 /* MockURLSession.swift in Sources */,
+				B56DDE2329AA67CC00F8A820 /* TestHelpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,14 +433,21 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = GK4GDX3M3T;
 				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mif50.NetworkRequestTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NetworkRequest.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/NetworkRequest";
@@ -430,10 +458,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = GK4GDX3M3T;
 				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mif50.NetworkRequestTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
