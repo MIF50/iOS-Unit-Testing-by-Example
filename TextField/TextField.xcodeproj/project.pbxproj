@@ -13,6 +13,12 @@
 		B53EDC2629AE9A1200472A36 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B53EDC2429AE9A1200472A36 /* Main.storyboard */; };
 		B53EDC2829AE9A1300472A36 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B53EDC2729AE9A1300472A36 /* Assets.xcassets */; };
 		B53EDC2B29AE9A1300472A36 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B53EDC2929AE9A1300472A36 /* LaunchScreen.storyboard */; };
+		B53EDC4029AE9DE400472A36 /* ViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53EDC3F29AE9DE400472A36 /* ViewControllerTests.swift */; };
+		B53EDC4229AEBC5E00472A36 /* TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53EDC4129AEBC5E00472A36 /* TestHelpers.swift */; };
+		B5DE689029B04883004AEE43 /* UITextContentType+XCTestCaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DE688F29B04883004AEE43 /* UITextContentType+XCTestCaseHelper.swift */; };
+		B5DE689229B048A6004AEE43 /* UITextAutocorrectionType+XCTestCaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DE689129B048A6004AEE43 /* UITextAutocorrectionType+XCTestCaseHelper.swift */; };
+		B5DE689429B048C5004AEE43 /* UIReturnKeyType+XCTestCaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DE689329B048C5004AEE43 /* UIReturnKeyType+XCTestCaseHelper.swift */; };
+		B5DE689629B048F5004AEE43 /* UITextField+XCTestCaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DE689529B048F5004AEE43 /* UITextField+XCTestCaseHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +41,12 @@
 		B53EDC2A29AE9A1300472A36 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B53EDC2C29AE9A1300472A36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B53EDC3629AE9A5600472A36 /* TextFieldTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TextFieldTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B53EDC3F29AE9DE400472A36 /* ViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTests.swift; sourceTree = "<group>"; };
+		B53EDC4129AEBC5E00472A36 /* TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHelpers.swift; sourceTree = "<group>"; };
+		B5DE688F29B04883004AEE43 /* UITextContentType+XCTestCaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextContentType+XCTestCaseHelper.swift"; sourceTree = "<group>"; };
+		B5DE689129B048A6004AEE43 /* UITextAutocorrectionType+XCTestCaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextAutocorrectionType+XCTestCaseHelper.swift"; sourceTree = "<group>"; };
+		B5DE689329B048C5004AEE43 /* UIReturnKeyType+XCTestCaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIReturnKeyType+XCTestCaseHelper.swift"; sourceTree = "<group>"; };
+		B5DE689529B048F5004AEE43 /* UITextField+XCTestCaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+XCTestCaseHelper.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,8 +102,22 @@
 		B53EDC3729AE9A5600472A36 /* TextFieldTests */ = {
 			isa = PBXGroup;
 			children = (
+				B5DE688E29B04842004AEE43 /* Helper */,
+				B53EDC3F29AE9DE400472A36 /* ViewControllerTests.swift */,
 			);
 			path = TextFieldTests;
+			sourceTree = "<group>";
+		};
+		B5DE688E29B04842004AEE43 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				B53EDC4129AEBC5E00472A36 /* TestHelpers.swift */,
+				B5DE688F29B04883004AEE43 /* UITextContentType+XCTestCaseHelper.swift */,
+				B5DE689129B048A6004AEE43 /* UITextAutocorrectionType+XCTestCaseHelper.swift */,
+				B5DE689329B048C5004AEE43 /* UIReturnKeyType+XCTestCaseHelper.swift */,
+				B5DE689529B048F5004AEE43 /* UITextField+XCTestCaseHelper.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,6 +173,7 @@
 					};
 					B53EDC3529AE9A5600472A36 = {
 						CreatedOnToolsVersion = 14.2;
+						LastSwiftMigration = 1420;
 						TestTargetID = B53EDC1A29AE9A1200472A36;
 					};
 				};
@@ -205,6 +232,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5DE689629B048F5004AEE43 /* UITextField+XCTestCaseHelper.swift in Sources */,
+				B53EDC4029AE9DE400472A36 /* ViewControllerTests.swift in Sources */,
+				B53EDC4229AEBC5E00472A36 /* TestHelpers.swift in Sources */,
+				B5DE689229B048A6004AEE43 /* UITextAutocorrectionType+XCTestCaseHelper.swift in Sources */,
+				B5DE689429B048C5004AEE43 /* UIReturnKeyType+XCTestCaseHelper.swift in Sources */,
+				B5DE689029B04883004AEE43 /* UITextContentType+XCTestCaseHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,14 +445,21 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = GK4GDX3M3T;
 				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mif50.TextFieldTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TextField.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TextField";
@@ -430,10 +470,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = GK4GDX3M3T;
 				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mif50.TextFieldTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
