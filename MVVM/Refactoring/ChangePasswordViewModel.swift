@@ -48,4 +48,6 @@ struct ChangePasswordViewModel {
     var submitButtonLabel: String {
         "Submit"
     }
+    
+    var isCancelButtonEnabled = true
 }

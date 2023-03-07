@@ -35,7 +35,16 @@ class ChangePasswordViewController: UIViewController {
     
     var securityToken = ""
     lazy var passwordChanger: PasswordChanging = PasswordChanger()
-    var viewModel: ChangePasswordViewModel!
+    
+    var viewModel: ChangePasswordViewModel! {
+        didSet {
+            guard isViewLoaded else { return }
+            
+            if oldValue.isCancelButtonEnabled != viewModel.isCancelButtonEnabled {
+                cancelBarButton.isEnabled = viewModel.isCancelButtonEnabled
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -97,7 +106,7 @@ class ChangePasswordViewController: UIViewController {
     private func setupWaitingAppearance() {
         view.endEditing(true)
         
-        cancelBarButton.isEnabled = false
+        viewModel.isCancelButtonEnabled = false
         view.backgroundColor = .clear
         
         view.addSubview(blurView)
@@ -169,7 +178,7 @@ class ChangePasswordViewController: UIViewController {
         oldPasswordTextField.becomeFirstResponder()
         view.backgroundColor = .white
         blurView.removeFromSuperview()
-        cancelBarButton.isEnabled = true
+        viewModel.isCancelButtonEnabled = true
     }
 }
 
