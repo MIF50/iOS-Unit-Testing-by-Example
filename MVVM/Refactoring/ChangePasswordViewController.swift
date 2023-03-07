@@ -43,6 +43,10 @@ class ChangePasswordViewController: UIViewController {
             if oldValue.isCancelButtonEnabled != viewModel.isCancelButtonEnabled {
                 cancelBarButton.isEnabled = viewModel.isCancelButtonEnabled
             }
+            
+            if oldValue.inputFocus != viewModel.inputFocus {
+                updateInputFocus()
+            }
         }
     }
     
@@ -62,7 +66,7 @@ class ChangePasswordViewController: UIViewController {
     }
     
     @IBAction private func cancel() {
-        view.endEditing(true)
+        viewModel.inputFocus = .noKeyboard
         dismiss(animated: true)
     }
     
@@ -104,7 +108,7 @@ class ChangePasswordViewController: UIViewController {
     }
     
     private func setupWaitingAppearance() {
-        view.endEditing(true)
+        viewModel.inputFocus = .noKeyboard
         
         viewModel.isCancelButtonEnabled = false
         view.backgroundColor = .clear
@@ -128,6 +132,22 @@ class ChangePasswordViewController: UIViewController {
             onSuccess: handleOnSuccess,
             onFailure: handleOnFailure
         )
+    }
+    
+    private func updateInputFocus() {
+        switch viewModel.inputFocus {
+        case .noKeyboard:
+            view.endEditing(true)
+            
+        case .oldPassword:
+            oldPasswordTextField.becomeFirstResponder()
+            
+        case .newPassword:
+            newPasswordTextField.becomeFirstResponder()
+            
+        case .confirmPassword:
+            confirmPasswordTextField.becomeFirstResponder()
+        }
     }
     
     private func showAlert(message: String,okAction: @escaping (UIAlertAction) -> Void) {
@@ -185,9 +205,9 @@ class ChangePasswordViewController: UIViewController {
 extension ChangePasswordViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField === oldPasswordTextField {
-            newPasswordTextField.becomeFirstResponder()
+            viewModel.inputFocus = .newPassword
         } else if textField === newPasswordTextField {
-            confirmPasswordTextField.becomeFirstResponder()
+            viewModel.inputFocus = .confirmPassword
         } else if textField == confirmPasswordTextField {
             changePassword()
         }

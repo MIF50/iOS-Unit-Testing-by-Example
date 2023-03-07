@@ -50,4 +50,13 @@ struct ChangePasswordViewModel {
     }
     
     var isCancelButtonEnabled = true
+    
+    var inputFocus: InputFocus = .noKeyboard
+    
+    enum InputFocus {
+        case noKeyboard
+        case oldPassword
+        case newPassword
+        case confirmPassword
+    }
 }
