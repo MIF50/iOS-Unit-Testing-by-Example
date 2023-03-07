@@ -41,6 +41,15 @@ class ChangePasswordViewController: UIViewController {
         super.viewDidLoad()
         
         styleButton()
+        setLabels()
+    }
+    
+    private func setLabels() {
+        navigationBar.topItem?.title = viewModel.title
+        oldPasswordTextField.placeholder = viewModel.oldPasswordPlaceholder
+        newPasswordTextField.placeholder = viewModel.newPasswordPlaceholder
+        confirmPasswordTextField.placeholder = viewModel.confirmPasswordPlaceholder
+        submitButton.setTitle(viewModel.submitButtonLabel, for: .normal)
     }
     
     @IBAction private func cancel() {

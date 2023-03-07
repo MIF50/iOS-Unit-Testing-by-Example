@@ -29,4 +29,23 @@ struct ChangePasswordViewModel {
         "Your password has been successfully changed."
     }
     
+    var title: String {
+        "Change Password"
+    }
+    
+    var oldPasswordPlaceholder: String {
+        "Current Password"
+    }
+    
+    var newPasswordPlaceholder: String {
+        "New Password"
+    }
+    
+    var confirmPasswordPlaceholder: String {
+        "Confirm New Password"
+    }
+    
+    var submitButtonLabel: String {
+        "Submit"
+    }
 }
