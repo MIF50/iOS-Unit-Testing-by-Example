@@ -63,21 +63,21 @@ class ChangePasswordViewController: UIViewController {
         }
         
         if newPasswordTextField.text?.isEmpty ?? true {
-            showAlert(message: "Please enter a new password.") { [weak self] _ in
+            showAlert(message: viewModel.enterNewPasswordMessage) { [weak self] _ in
                 self?.newPasswordTextField.becomeFirstResponder()
             }
             return false
         }
         
         if newPasswordTextField.text?.count ?? 0 < 6 {
-            showAlert(message: "The new password should have at least 6 characters.") { [weak self] _ in
+            showAlert(message: viewModel.newPasswordTooShortMessage) { [weak self] _ in
                 self?.resetNewPassword()
             }
             return false
         }
         
         if newPasswordTextField.text != confirmPasswordTextField.text {
-            showAlert(message: "The new password and the confirmation password don’t match. Please try again.") { [weak self] _ in
+            showAlert(message: viewModel.confirmationPasswordDoesNotMatchMessage) { [weak self] _ in
                 self?.resetNewPassword()
             }
             return false
@@ -114,7 +114,7 @@ class ChangePasswordViewController: UIViewController {
     
     private func showAlert(message: String,okAction: @escaping (UIAlertAction) -> Void) {
         let alert = UIAlertController(title: nil,message: message, preferredStyle: .alert)
-        let okButton = UIAlertAction( title: "OK",style: .default,handler: okAction)
+        let okButton = UIAlertAction( title: viewModel.okButtonLabel,style: .default,handler: okAction)
         alert.addAction(okButton)
         alert.preferredAction = okButton
         self.present(alert, animated: true)
@@ -134,7 +134,7 @@ class ChangePasswordViewController: UIViewController {
     private func handleOnSuccess() {
         hideSpiner()
         
-        showAlert(message: "Your password has been successfully changed.") { [weak self] _ in
+        showAlert(message: viewModel.successMessage) { [weak self] _ in
             self?.dismiss(animated: true)
         }
     }
