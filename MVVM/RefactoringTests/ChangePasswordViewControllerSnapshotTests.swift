@@ -38,6 +38,7 @@ final class ChangePasswordViewControllerSnapshotTests: XCTestCase {
     private func makeSUT() -> ChangePasswordViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let sut: ChangePasswordViewController = storyboard.instantiateViewController(identifier: String(describing: ChangePasswordViewController.self))
+        sut.viewModel = ChangePasswordViewModel()
         sut.loadViewIfNeeded()
         return sut
     }

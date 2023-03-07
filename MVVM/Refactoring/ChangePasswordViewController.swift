@@ -33,8 +33,9 @@ class ChangePasswordViewController: UIViewController {
         return view
     }()
     
-    lazy var passwordChanger: PasswordChanging = PasswordChanger()
     var securityToken = ""
+    lazy var passwordChanger: PasswordChanging = PasswordChanger()
+    var viewModel: ChangePasswordViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
