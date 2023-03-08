@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B523CEE629B930FB002774DC /* ChangePasswordViewCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = B523CEE529B930FB002774DC /* ChangePasswordViewCommands.swift */; };
 		B52FC28B29B7C48500D59A0B /* XCTestCase+UIBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52FC28A29B7C48500D59A0B /* XCTestCase+UIBarButtonItem.swift */; };
 		B52FC28D29B7C83800D59A0B /* ChangePasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52FC28C29B7C83800D59A0B /* ChangePasswordViewModel.swift */; };
 		B57940C129B697F500DE1A97 /* XCTestCase+UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57940C029B697F500DE1A97 /* XCTestCase+UITextField.swift */; };
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B523CEE529B930FB002774DC /* ChangePasswordViewCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewCommands.swift; sourceTree = "<group>"; };
 		B52FC28A29B7C48500D59A0B /* XCTestCase+UIBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+UIBarButtonItem.swift"; sourceTree = "<group>"; };
 		B52FC28C29B7C83800D59A0B /* ChangePasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewModel.swift; sourceTree = "<group>"; };
 		B57940C029B697F500DE1A97 /* XCTestCase+UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+UITextField.swift"; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				B5D5F83629B442E700C39AAB /* PasswordChanger.swift */,
 				B5D5F81929B43F4B00C39AAB /* ViewController.swift */,
 				B52FC28C29B7C83800D59A0B /* ChangePasswordViewModel.swift */,
+				B523CEE529B930FB002774DC /* ChangePasswordViewCommands.swift */,
 				B5D5F83829B4473800C39AAB /* ChangePasswordViewController.swift */,
 				B5D5F81B29B43F4B00C39AAB /* Main.storyboard */,
 				B5D5F81E29B43F4B00C39AAB /* Assets.xcassets */,
@@ -270,6 +273,7 @@
 				B5D5F81A29B43F4B00C39AAB /* ViewController.swift in Sources */,
 				B52FC28D29B7C83800D59A0B /* ChangePasswordViewModel.swift in Sources */,
 				B5D5F81629B43F4B00C39AAB /* AppDelegate.swift in Sources */,
+				B523CEE629B930FB002774DC /* ChangePasswordViewCommands.swift in Sources */,
 				B5D5F81829B43F4B00C39AAB /* SceneDelegate.swift in Sources */,
 				B5D5F83929B4473800C39AAB /* ChangePasswordViewController.swift in Sources */,
 				B5D5F83729B442E700C39AAB /* PasswordChanger.swift in Sources */,

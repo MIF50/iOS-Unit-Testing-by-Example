@@ -162,6 +162,10 @@ class ChangePasswordViewController: UIViewController {
     }
 }
 
+extension ChangePasswordViewController: ChangePasswordViewCommands {
+    
+}
+
 //MARK: - Update UI
 
 extension ChangePasswordViewController {
