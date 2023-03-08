@@ -155,29 +155,6 @@ class ChangePasswordViewController: UIViewController {
         newPasswordTextField.becomeFirstResponder()
     }
     
-    private func handleOnSuccess() {
-        viewModel.isActivityIndicatorShowing = false
-        showAlert(message: viewModel.successMessage) { [weak self] _ in
-            self?.dismiss(animated: true)
-        }
-    }
-    
-    private func handleOnFailure(message: String) {
-        viewModel.isActivityIndicatorShowing = false
-        showAlert(message: message) { [weak self] _ in
-            self?.startOver()
-        }
-    }
-    
-    private func startOver() {
-        oldPasswordTextField.setEmpty()
-        newPasswordTextField.setEmpty()
-        confirmPasswordTextField.setEmpty()
-        oldPasswordTextField.becomeFirstResponder()
-        viewModel.isBlurViewShowing = false
-        viewModel.isCancelButtonEnabled = true
-    }
-    
     private func updateViewModelToTextFields() {
         viewModel.oldPassword = oldPasswordTextField.wrappedText
         viewModel.newPassword = newPasswordTextField.wrappedText
@@ -235,6 +212,34 @@ extension ChangePasswordViewController {
         activityIndicator.removeFromSuperview()
     }
 }
+
+//MARK: - Api response
+
+extension ChangePasswordViewController {
+    private func handleOnSuccess() {
+        viewModel.isActivityIndicatorShowing = false
+        showAlert(message: viewModel.successMessage) { [weak self] _ in
+            self?.dismiss(animated: true)
+        }
+    }
+    
+    private func handleOnFailure(message: String) {
+        viewModel.isActivityIndicatorShowing = false
+        showAlert(message: message) { [weak self] _ in
+            self?.startOver()
+        }
+    }
+    
+    private func startOver() {
+        oldPasswordTextField.setEmpty()
+        newPasswordTextField.setEmpty()
+        confirmPasswordTextField.setEmpty()
+        oldPasswordTextField.becomeFirstResponder()
+        viewModel.isBlurViewShowing = false
+        viewModel.isCancelButtonEnabled = true
+    }
+}
+
 
 extension ChangePasswordViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
