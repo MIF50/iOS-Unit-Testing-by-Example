@@ -65,14 +65,6 @@ class ChangePasswordViewController: UIViewController {
         setLabels()
     }
     
-    private func setLabels() {
-        navigationBar.topItem?.title = viewModel.title
-        oldPasswordTextField.placeholder = viewModel.oldPasswordPlaceholder
-        newPasswordTextField.placeholder = viewModel.newPasswordPlaceholder
-        confirmPasswordTextField.placeholder = viewModel.confirmPasswordPlaceholder
-        submitButton.setTitle(viewModel.submitButtonLabel, for: .normal)
-    }
-    
     @IBAction private func cancel() {
         viewModel.inputFocus = .noKeyboard
         dismiss(animated: true)
@@ -158,8 +150,8 @@ class ChangePasswordViewController: UIViewController {
     }
     
     private func resetNewPassword() {
-        newPasswordTextField.text = ""
-        confirmPasswordTextField.text = ""
+        newPasswordTextField.setEmpty()
+        confirmPasswordTextField.setEmpty()
         newPasswordTextField.becomeFirstResponder()
     }
     
@@ -177,12 +169,6 @@ class ChangePasswordViewController: UIViewController {
         }
     }
     
-    private func styleButton() {
-        submitButton.layer.borderWidth = 1
-        submitButton.layer.borderColor = UIColor(red: 55/255.0, green: 147/255.0, blue: 251/255.0, alpha: 1).cgColor
-        submitButton.layer.cornerRadius = 8
-    }
-    
     private func startOver() {
         oldPasswordTextField.setEmpty()
         newPasswordTextField.setEmpty()
@@ -190,6 +176,31 @@ class ChangePasswordViewController: UIViewController {
         oldPasswordTextField.becomeFirstResponder()
         viewModel.isBlurViewShowing = false
         viewModel.isCancelButtonEnabled = true
+    }
+    
+    private func updateViewModelToTextFields() {
+        viewModel.oldPassword = oldPasswordTextField.wrappedText
+        viewModel.newPassword = newPasswordTextField.wrappedText
+        viewModel.confirmPassword = confirmPasswordTextField.wrappedText
+    }
+}
+
+//MARK: - Update UI
+
+extension ChangePasswordViewController {
+    
+    private func styleButton() {
+        submitButton.layer.borderWidth = 1
+        submitButton.layer.borderColor = UIColor(red: 55/255.0, green: 147/255.0, blue: 251/255.0, alpha: 1).cgColor
+        submitButton.layer.cornerRadius = 8
+    }
+    
+    private func setLabels() {
+        navigationBar.topItem?.title = viewModel.title
+        oldPasswordTextField.placeholder = viewModel.oldPasswordPlaceholder
+        newPasswordTextField.placeholder = viewModel.newPasswordPlaceholder
+        confirmPasswordTextField.placeholder = viewModel.confirmPasswordPlaceholder
+        submitButton.setTitle(viewModel.submitButtonLabel, for: .normal)
     }
     
     private func updateBlurView() {
@@ -222,12 +233,6 @@ class ChangePasswordViewController: UIViewController {
     private func hideSpiner() {
         activityIndicator.stopAnimating()
         activityIndicator.removeFromSuperview()
-    }
-    
-    private func updateViewModelToTextFields() {
-        viewModel.oldPassword = oldPasswordTextField.wrappedText
-        viewModel.newPassword = newPasswordTextField.wrappedText
-        viewModel.confirmPassword = confirmPasswordTextField.wrappedText
     }
 }
 
