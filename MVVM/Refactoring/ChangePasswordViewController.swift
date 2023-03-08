@@ -79,6 +79,7 @@ class ChangePasswordViewController: UIViewController {
     }
     
     @IBAction private func changePassword() {
+        updateViewModelToTextFields()
         guard validateInputs() else {
             return
         }
@@ -87,26 +88,26 @@ class ChangePasswordViewController: UIViewController {
     }
     
     private func validateInputs() -> Bool {
-        if oldPasswordTextField.text?.isEmpty ?? true {
+        if viewModel.isOldPasswordEmpty {
             oldPasswordTextField.becomeFirstResponder()
             return false
         }
         
-        if newPasswordTextField.text?.isEmpty ?? true {
+        if viewModel.isNewPasswordEmpty {
             showAlert(message: viewModel.enterNewPasswordMessage) { [weak self] _ in
                 self?.newPasswordTextField.becomeFirstResponder()
             }
             return false
         }
         
-        if newPasswordTextField.text?.count ?? 0 < 6 {
+        if viewModel.isNewPasswordTooShort {
             showAlert(message: viewModel.newPasswordTooShortMessage) { [weak self] _ in
                 self?.resetNewPassword()
             }
             return false
         }
         
-        if newPasswordTextField.text != confirmPasswordTextField.text {
+        if viewModel.isConfirmationPasswordMismatch {
             showAlert(message: viewModel.confirmationPasswordDoesNotMatchMessage) { [weak self] _ in
                 self?.resetNewPassword()
             }
@@ -125,8 +126,8 @@ class ChangePasswordViewController: UIViewController {
     private func attemptToChangePassword() {
         passwordChanger.change(
             securityToken: securityToken,
-            oldPassword: oldPasswordTextField.wrappedText,
-            newPassword: newPasswordTextField.wrappedText,
+            oldPassword: viewModel.oldPassword,
+            newPassword: viewModel.newPassword,
             onSuccess: handleOnSuccess,
             onFailure: handleOnFailure
         )
@@ -221,6 +222,12 @@ class ChangePasswordViewController: UIViewController {
     private func hideSpiner() {
         activityIndicator.stopAnimating()
         activityIndicator.removeFromSuperview()
+    }
+    
+    private func updateViewModelToTextFields() {
+        viewModel.oldPassword = oldPasswordTextField.wrappedText
+        viewModel.newPassword = newPasswordTextField.wrappedText
+        viewModel.confirmPassword = confirmPasswordTextField.wrappedText
     }
 }
 
