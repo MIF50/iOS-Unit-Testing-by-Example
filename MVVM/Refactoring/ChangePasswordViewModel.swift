@@ -55,6 +55,8 @@ struct ChangePasswordViewModel {
     
     var isBlurViewShowing = false
     
+    var isActivityIndicatorShowing = false
+    
     enum InputFocus {
         case noKeyboard
         case oldPassword

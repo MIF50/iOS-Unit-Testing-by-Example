@@ -51,6 +51,10 @@ class ChangePasswordViewController: UIViewController {
             if oldValue.isBlurViewShowing != viewModel.isBlurViewShowing {
                 updateBlurView()
             }
+            
+            if oldValue.isActivityIndicatorShowing != viewModel.isActivityIndicatorShowing {
+                updateActivityIndicator()
+            }
         }
     }
     
@@ -115,13 +119,7 @@ class ChangePasswordViewController: UIViewController {
         viewModel.inputFocus = .noKeyboard
         viewModel.isCancelButtonEnabled = false
         viewModel.isBlurViewShowing = true
-        
-        view.addSubview(activityIndicator)
-        NSLayoutConstraint.activate([
-            activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
-        ])
-        activityIndicator.startAnimating()
+        viewModel.isActivityIndicatorShowing = true
     }
     
     private func attemptToChangePassword() {
@@ -164,22 +162,15 @@ class ChangePasswordViewController: UIViewController {
         newPasswordTextField.becomeFirstResponder()
     }
     
-    private func hideSpiner() {
-        activityIndicator.stopAnimating()
-        activityIndicator.removeFromSuperview()
-    }
-    
     private func handleOnSuccess() {
-        hideSpiner()
-        
+        viewModel.isActivityIndicatorShowing = false
         showAlert(message: viewModel.successMessage) { [weak self] _ in
             self?.dismiss(animated: true)
         }
     }
     
     private func handleOnFailure(message: String) {
-        hideSpiner()
-        
+        viewModel.isActivityIndicatorShowing = false
         showAlert(message: message) { [weak self] _ in
             self?.startOver()
         }
@@ -212,6 +203,24 @@ class ChangePasswordViewController: UIViewController {
             view.backgroundColor = .white
             blurView.removeFromSuperview()
         }
+    }
+    
+    private func updateActivityIndicator() {
+        if viewModel.isActivityIndicatorShowing {
+            view.addSubview(activityIndicator)
+            NSLayoutConstraint.activate([
+                activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+            ])
+            activityIndicator.startAnimating()
+        } else {
+            hideSpiner()
+        }
+    }
+    
+    private func hideSpiner() {
+        activityIndicator.stopAnimating()
+        activityIndicator.removeFromSuperview()
     }
 }
 
