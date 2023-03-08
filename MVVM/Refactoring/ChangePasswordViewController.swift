@@ -183,28 +183,36 @@ extension ChangePasswordViewController {
     private func updateBlurView() {
         if viewModel.isBlurViewShowing {
             view.backgroundColor = .clear
-            view.addSubview(blurView)
-            NSLayoutConstraint.activate([
-                blurView.heightAnchor.constraint(equalTo: view.heightAnchor),
-                blurView.widthAnchor.constraint(equalTo: view.widthAnchor),
-            ])
+            configureBlurView()
         } else {
             view.backgroundColor = .white
             blurView.removeFromSuperview()
         }
     }
     
+    private func configureBlurView() {
+        view.addSubview(blurView)
+        NSLayoutConstraint.activate([
+            blurView.heightAnchor.constraint(equalTo: view.heightAnchor),
+            blurView.widthAnchor.constraint(equalTo: view.widthAnchor),
+        ])
+    }
+    
     private func updateActivityIndicator() {
         if viewModel.isActivityIndicatorShowing {
-            view.addSubview(activityIndicator)
-            NSLayoutConstraint.activate([
-                activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
-            ])
+            configureActivityIndicator()
             activityIndicator.startAnimating()
         } else {
             hideSpiner()
         }
+    }
+    
+    private func configureActivityIndicator() {
+        view.addSubview(activityIndicator)
+        NSLayoutConstraint.activate([
+            activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
     }
     
     private func hideSpiner() {
