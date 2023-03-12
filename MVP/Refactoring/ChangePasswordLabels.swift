@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ChangePasswordViewModel {
+struct ChangePasswordLabels {
     
     var okButtonLabel: String {
         "OK"
@@ -47,40 +47,5 @@ struct ChangePasswordViewModel {
     
     var submitButtonLabel: String {
         "Submit"
-    }
-    
-    var isCancelButtonEnabled = true
-    
-    var inputFocus: InputFocus = .noKeyboard
-    
-    var isBlurViewShowing = false
-    
-    var isActivityIndicatorShowing = false
-    
-    var oldPassword = ""
-    var newPassword = ""
-    var confirmPassword = ""
-    
-    var isOldPasswordEmpty: Bool {
-        oldPassword.isEmpty
-    }
-    
-    var isNewPasswordEmpty: Bool {
-        newPassword.isEmpty
-    }
-    
-    var isNewPasswordTooShort: Bool {
-        newPassword.count < 6
-    }
-    
-    var isConfirmationPasswordMismatch: Bool {
-        newPassword != confirmPassword
-    }
-    
-    enum InputFocus {
-        case noKeyboard
-        case oldPassword
-        case newPassword
-        case confirmPassword
-    }
+    }    
 }

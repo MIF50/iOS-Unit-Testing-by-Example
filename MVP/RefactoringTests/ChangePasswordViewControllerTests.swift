@@ -646,7 +646,7 @@ final class ChangePasswordViewControllerTests: XCTestCase {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let sut: ChangePasswordViewController = storyboard.instantiateViewController(identifier: String(describing: ChangePasswordViewController.self))
         sut.passwordChanger = passwordChanger
-        sut.viewModel = ChangePasswordViewModel()
+        sut.labels = ChangePasswordLabels()
         sut.loadViewIfNeeded()
         return sut
     }
@@ -676,11 +676,11 @@ final class ChangePasswordViewControllerTests: XCTestCase {
     }
     
     private func putFocusOn(
-        _ inputFocus: ChangePasswordViewModel.InputFocus,
+        _ inputFocus: InputFocus,
         in sut: ChangePasswordViewController
     ) {
         putInViewHierarchy(sut)
-        sut.viewModel.inputFocus = inputFocus
+        sut.updateInputFocus(inputFocus)
     }
     
     @MainActor
