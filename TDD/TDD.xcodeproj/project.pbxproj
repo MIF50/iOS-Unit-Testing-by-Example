@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B55ADE9429BF9B7000DEAAA7 /* GreeterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55ADE9329BF9B7000DEAAA7 /* GreeterTests.swift */; };
 		B5C7E2AD29BE749600BC8E16 /* TDD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5C7E2A429BE749500BC8E16 /* TDD.framework */; };
 /* End PBXBuildFile section */
 
@@ -21,6 +22,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B55ADE9329BF9B7000DEAAA7 /* GreeterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreeterTests.swift; sourceTree = "<group>"; };
 		B5C7E2A429BE749500BC8E16 /* TDD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TDD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5C7E2AC29BE749600BC8E16 /* TDDTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TDDTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -72,6 +74,7 @@
 		B5C7E2B029BE749600BC8E16 /* TDDTests */ = {
 			isa = PBXGroup;
 			children = (
+				B55ADE9329BF9B7000DEAAA7 /* GreeterTests.swift */,
 			);
 			path = TDDTests;
 			sourceTree = "<group>";
@@ -192,6 +195,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B55ADE9429BF9B7000DEAAA7 /* GreeterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
